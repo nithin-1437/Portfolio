@@ -1,4 +1,4 @@
-import { spawn } from 'child_process';
+const { spawn } = require('child_process');
 
 console.log('\x1b[36m%s\x1b[0m', '══════════════════════════════════════════════════════════════');
 console.log('\x1b[36m%s\x1b[0m', '🚀 Launching SATYA SAI NITHIN REDDY Portfolio (Frontend + Backend)');
@@ -22,9 +22,12 @@ const frontend = spawn('npm', ['--prefix', 'frontend', 'run', 'dev'], {
 });
 
 const cleanup = () => {
-  console.log('\n\x1b[33m%s\x1b[0m', 'Shutting down both frontend and backend servers...');
-  backend.kill();
-  frontend.kill();
+  try {
+    backend.kill();
+  } catch (e) {}
+  try {
+    frontend.kill();
+  } catch (e) {}
   process.exit();
 };
 
