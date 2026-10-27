@@ -29,6 +29,41 @@ const contactLimiter = rateLimit({
   legacyHeaders: false,
 });
 
+// Root Endpoint
+app.get('/', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <title>Portfolio API Server | Satya Sai Nithin Reddy</title>
+        <style>
+          body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #070b14; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+          .card { background: #0d1527; border: 1px solid #1f2e4d; padding: 2.5rem; border-radius: 1.25rem; max-width: 520px; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7); }
+          .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; font-size: 12px; font-weight: 600; margin-bottom: 1rem; }
+          .dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #10b981; }
+          h1 { color: #38bdf8; margin: 0 0 0.5rem 0; font-size: 1.5rem; }
+          p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0.5rem 0 1.5rem 0; }
+          .btn { display: inline-block; padding: 0.75rem 1.75rem; background: linear-gradient(135deg, #0284c7, #2563eb); color: white; text-decoration: none; border-radius: 0.75rem; font-weight: 600; font-size: 0.9rem; box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.4); }
+          .endpoints { margin-top: 1.5rem; font-family: monospace; font-size: 11px; color: #64748b; background: #070f22; padding: 10px; border-radius: 8px; border: 1px solid #1e293b; text-align: left; }
+        </style>
+      </head>
+      <body>
+        <div class="card">
+          <div class="badge"><span class="dot"></span> Backend API Server Online (Port 5001)</div>
+          <h1>SATYA SAI NITHIN REDDY</h1>
+          <p>Portfolio REST API Service is actively running.<br/>View the full interactive developer portfolio below:</p>
+          <a class="btn" href="http://localhost:5173">Open Portfolio Website (Port 5173) &rarr;</a>
+          <div class="endpoints">
+            &bull; Health Check: <a href="/api/health" style="color:#38bdf8;">/api/health</a><br/>
+            &bull; Contact Form: POST /api/contact
+          </div>
+        </div>
+      </body>
+    </html>
+  `);
+});
+
 // Health Endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({
@@ -117,6 +152,14 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Portfolio API server running at http://localhost:${PORT}`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`Port ${PORT} is already in use by an active backend instance (the server is already running).`);
+  } else {
+    console.error('Server error:', err);
+  }
 });
