@@ -7,9 +7,12 @@
 [![Azure Certified](https://img.shields.io/badge/Microsoft%20Certified-AZ--900-0078D4?logo=microsoftazure)](https://learn.microsoft.com/)
 [![OCI Certified](https://img.shields.io/badge/Oracle%20Cloud-Foundations%20Associate-F80000?logo=oracle)](https://oracle.com/)
 
-A modern, high-performance, and responsive personal portfolio website crafted for recruiters, hiring managers, and collaborators to showcase technical projects, verified multi-cloud credentials, digital forensics research, and software engineering capabilities.
+[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Portfolio-Visit%20Website-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://nithin-1437.github.io/Portfolio/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/nithin-1437/Portfolio)
 
----
+> 🌐 **Live Website URL**: **[https://nithin-1437.github.io/Portfolio/](https://nithin-1437.github.io/Portfolio/)**
+>
+> *Crafted for recruiters, hiring managers, and technical teams to explore technical projects, verified multi-cloud credentials, digital forensics research, and full-stack engineering capabilities.*
 
 ## 👨‍💻 Candidate Overview
 

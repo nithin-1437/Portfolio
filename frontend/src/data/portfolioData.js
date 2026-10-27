@@ -3,6 +3,9 @@
  * Easily update personal details, links, projects, certifications, and skills here.
  */
 
+const baseUrl = import.meta.env.BASE_URL || '/';
+const asset = (path) => `${baseUrl}${path.replace(/^\//, '')}`;
+
 export const personalInfo = {
   fullName: "SATYA SAI NITHIN REDDY NALLAMILLI",
   shortName: "Nithin Reddy",
@@ -30,8 +33,9 @@ export const personalInfo = {
     "Software Developer",
     "Cloud & Forensics Enthusiast"
   ],
-  resumeUrl: "/resume.pdf",
-  profileImage: "/profile.jpg",
+  resumeUrl: asset('resume.pdf'),
+  profileImage: asset('profile.jpg'),
+  liveUrl: "https://nithin-1437.github.io/Portfolio/",
 };
 
 export const educationHistory = [
@@ -222,8 +226,8 @@ export const certifications = [
     certNumber: "C0CC29-AD95K5",
     description: "Validates foundational knowledge of cloud services, core Azure architectural components, governance, security, privacy, and compliance frameworks.",
     badgeColor: "from-blue-600 to-sky-500",
-    image: "/certificates/azure-fundamentals.png",
-    pdfUrl: "/certificates/azure-fundamentals.pdf",
+    image: asset("certificates/azure-fundamentals.png"),
+    pdfUrl: asset("certificates/azure-fundamentals.pdf"),
     verifyUrl: "https://learn.microsoft.com/en-us/users/nallamillisatyasainithinreddy-0991/credentials/certification/azure-fundamentals?tab=credentials-tab",
     isRealVerification: true,
     skillsLearned: ["Cloud Architecture", "Azure Security Services", "Cloud Governance & Compliance", "SLA & Cost Management"]
@@ -238,8 +242,8 @@ export const certifications = [
     certNumber: "OCI25FNDCFA",
     description: "Demonstrates core technical fluency in Oracle Cloud Infrastructure (OCI), identity and access management (IAM), compute, virtual cloud networks (VCN), and cloud storage security.",
     badgeColor: "from-red-600 to-orange-500",
-    image: "/certificates/oracle-cloud.png",
-    pdfUrl: "/certificates/oracle-cloud.pdf",
+    image: asset("certificates/oracle-cloud.png"),
+    pdfUrl: asset("certificates/oracle-cloud.pdf"),
     verifyUrl: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=102965148OCI25FNDCFA",
     isRealVerification: true,
     skillsLearned: ["OCI Core Architecture", "IAM & Access Control", "Virtual Cloud Networking (VCN)", "Cloud Storage & Security Zones"]
@@ -254,8 +258,8 @@ export const certifications = [
     certNumber: "2025-28963",
     description: "Industry-leading multicloud networking certification covering multicloud network architecture (MCNA), enterprise transit routing, cross-cloud security, and unified governance across AWS, Azure, GCP, and OCI.",
     badgeColor: "from-orange-600 to-amber-500",
-    image: "/certificates/aviatrix-mcna.png",
-    pdfUrl: "/certificates/aviatrix-mcna.pdf",
+    image: asset("certificates/aviatrix-mcna.png"),
+    pdfUrl: asset("certificates/aviatrix-mcna.pdf"),
     verifyUrl: "https://aviatrix.com/ace/",
     isRealVerification: true,
     skillsLearned: ["Multicloud Network Architecture", "Transit Networking & Peering", "Cross-Cloud Security Policies", "Aviatrix Cloud Operations"]
@@ -270,8 +274,8 @@ export const certifications = [
     certNumber: "AAESSE2024A360",
     description: "Certified professional credential in Robotic Process Automation (RPA), autonomous bot lifecycle, workflow task orchestration, and cognitive automation integration.",
     badgeColor: "from-amber-500 to-yellow-400",
-    image: "/certificates/automation-anywhere.png",
-    pdfUrl: "/certificates/automation-anywhere.pdf",
+    image: asset("certificates/automation-anywhere.png"),
+    pdfUrl: asset("certificates/automation-anywhere.pdf"),
     verifyUrl: "https://www.automationanywhere.com/",
     isRealVerification: true,
     skillsLearned: ["Robotic Process Automation", "Bot Architecture & Lifecycle", "Enterprise Workflow Automation", "Exception Handling & Logging"]
